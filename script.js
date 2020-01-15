@@ -47,6 +47,10 @@
 
     }
     
+    function under(){
+        
+    }    
+    
     function render(){
         ctx.save();
         ctx.translate(-cam.x, -cam.y);
