@@ -57,6 +57,46 @@
     cam.x = (gameWorld.width - cam.width)/2;
     cam.x = (gameWorld.width - cam.height)/2;
 
+    //mover char
+    var mvLeft = mvRgt = mvUp = mvDown = false;
+    window.addEventListener('keydown', function(e){
+        var key = e.keyCode;
+        switch(key){
+            case 37:
+                mvLeft = true;
+                break;
+            case 39:
+                mvRgt = true;
+                break;
+            case 38:
+                mvUp = true;
+                break;
+            case 40:
+                mvDown = true;
+                break;
+        }
+    },false);
+
+    window.addEventListener('keyup', function(e){
+        var key = e.keyCode;
+        switch(key){
+            case 37:
+                mvLeft = false;
+                break;
+            case 39:
+                mvRgt = false;
+                break;
+            case 38:
+                mvUp = false;
+                break;
+            case 40:
+                mvDown = false;
+                break;
+        }
+    },false);
+
+
+
     function loop(){
         window.requestAnimationFrame(loop, cnv);
         update();
@@ -64,7 +104,26 @@
     }
 
     function update(){
+        if(mvLeft && !mvRgt){
+            char.x -= 2;
+        }
+        if(mvRgt && !mvLeft){
+            char.x += 2;
+        }
+        if(mvUp && !mvDown){
+            char.y -= 2;
+        }
+        if(mvDown && !mvUp){
+            char.y += 2;
+        }
 
+        //atualiza posição cam
+        if(char.x < cam.leftEdge()){
+            cam.x = char.x - (cam.width * 0.25);
+        }
+        if(char.x + char.width > cam.RightEdge()){
+            cam.x = char.x + char.width - (cam.width * 0.75);
+        }
     }
       
     
