@@ -95,8 +95,6 @@
         }
     },false);
 
-
-
     function loop(){
         window.requestAnimationFrame(loop, cnv);
         update();
@@ -135,7 +133,7 @@
         if(char.x < cam.leftEdge()){
             cam.x = char.x - (cam.width * 0.25);
         }
-        if(char.x + char.width > cam.RightEdge()){
+        if(char.x + char.width > cam.rightEdge()){
             cam.x = char.x + char.width - (cam.width * 0.75);
         }
         if(char.y < cam.topEdge()){
@@ -161,7 +159,6 @@
 
 
     }
-      
     
     function render(){
         ctx.save();
