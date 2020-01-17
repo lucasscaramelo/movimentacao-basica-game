@@ -6,6 +6,9 @@
     var background = new Image();
     background.src = "scene.png";
 
+    var monster = new Image();
+    monster.src = "monster.png";
+
 
     //objetos
     var sprites = [];
@@ -17,6 +20,19 @@
         height: 600
     };
     sprites.push(gameWorld);
+
+    var char = {
+        img: monster,
+        x: 0,
+        y: 0,
+        width: 64,
+        height: 64
+    };
+    sprites.push(char);
+
+    //centralizar char
+    char.x = (gameWorld.width - char.width)/2;
+    char.x = (gameWorld.width - char.height)/2;
 
     var cam = {
         x: 0,
@@ -37,6 +53,10 @@
         }
     }
 
+    //centralizar cam
+    cam.x = (gameWorld.width - cam.width)/2;
+    cam.x = (gameWorld.width - cam.height)/2;
+
     function loop(){
         window.requestAnimationFrame(loop, cnv);
         update();
@@ -46,10 +66,7 @@
     function update(){
 
     }
-    
-    function under(){
-        
-    }    
+      
     
     function render(){
         ctx.save();
