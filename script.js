@@ -169,7 +169,7 @@
         }
         ctx.restore();
         ctx.font = "bold 25px Arial";
-        ctx.fillText("SCORE: 0", 12, 30)
+        ctx.fillText("SCORE: 0", 10, 30)
     }
 
     loop();
